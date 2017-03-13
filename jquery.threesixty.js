@@ -166,14 +166,16 @@ jQuery.fn.threesixty = function(options){
 		if (options.method == "auto") {
 				var speed = options.autoscrollspeed;
 			var newIndex=0;
-			var checkFirst = 0;
-			if(checkFirst == 0){
+			 if( typeof threesixty.counter == 'undefined' ) {
+        			threesixty.counter = 0;
+    			}
+			if(threesixty.counter == 0){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			}
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
 				pic.data("enabled","1"); 
-				checkFirst++;
+				threesixty.counter++;
 			});	
 	
 			$("body").mouseup(function(e) {
