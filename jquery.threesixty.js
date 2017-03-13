@@ -170,7 +170,7 @@ jQuery.fn.threesixty = function(options){
 			var newIndex=0;
 			var isClicked=0;
 			//if (isClicked>0){
-			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
+			var myInt = window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			//}
 			
 			
@@ -184,7 +184,7 @@ jQuery.fn.threesixty = function(options){
 	 			e.preventDefault();
 	 			pic.data("enabled","0");
 				pic.data("currentIndex",pic.data("tempIndex"));
-				window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])},10000);
+				clearInterval(myInt);
 				
 			});
 			
