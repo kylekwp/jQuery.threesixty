@@ -169,7 +169,7 @@ jQuery.fn.threesixty = function(options){
 			var speed = options.autoscrollspeed;
 			var newIndex=0;
 			var isClicked=0;
-			if (isClicked==0){
+			if (isClicked==1){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			}
 			
