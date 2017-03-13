@@ -184,8 +184,7 @@ jQuery.fn.threesixty = function(options){
 	 			e.preventDefault();
 	 			pic.data("enabled","0");
 				pic.data("currentIndex",pic.data("tempIndex"));
-				++isClicked;
-				alert(isClicked);
+				speed=0;
 				
 			});
 			
