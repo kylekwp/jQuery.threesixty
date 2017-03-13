@@ -177,7 +177,7 @@ jQuery.fn.threesixty = function(options){
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
 				pic.data("enabled","1"); 
-				jQuery.fn.threesixty.counter.counter++;
+				jQuery.fn.threesixty.counter++;
 			});	
 	
 			$("body").mouseup(function(e) {
