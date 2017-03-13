@@ -184,6 +184,7 @@ jQuery.fn.threesixty = function(options){
 	 			e.preventDefault();
 	 			pic.data("enabled","0");
 				pic.data("currentIndex",pic.data("tempIndex"));
+				jQuery.fn.threesixty.counter++;
 				
 			});
 			
