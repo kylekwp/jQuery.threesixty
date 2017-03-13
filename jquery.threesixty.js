@@ -166,11 +166,14 @@ jQuery.fn.threesixty = function(options){
 		if (options.method == "auto") {
 				var speed = options.autoscrollspeed;
 			var newIndex=0;
+			var checkFirst = 0;
+			if(checkFirst == 0){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
-			
+			}
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
-				pic.data("enabled","1"); 	
+				pic.data("enabled","1"); 
+				checkFirst++;
 			});	
 	
 			$("body").mouseup(function(e) {
