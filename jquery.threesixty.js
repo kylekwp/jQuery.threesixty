@@ -18,6 +18,10 @@ jQuery.fn.threesixty = function(options){
 	options.direction = options.direction || "forward";
 	options.sensibility = options.sensibility || options.cycle * 0.35;
 	options.autoscrollspeed = options.autoscrollspeed || 500;
+	
+	 if( typeof jQuery.fn.threesixty.counter == 'undefined' ) {
+        	jQuery.fn.threesixty.counter = 0;
+    	}
 
 
 	if (options.direction == "backward")
@@ -166,16 +170,14 @@ jQuery.fn.threesixty = function(options){
 		if (options.method == "auto") {
 				var speed = options.autoscrollspeed;
 			var newIndex=0;
-			 if( typeof threesixty.counter == 'undefined' ) {
-        			threesixty.counter = 0;
-    			}
-			if(threesixty.counter == 0){
+			
+			if(jQuery.fn.threesixty.counter == 0){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			}
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
 				pic.data("enabled","1"); 
-				
+				jQuery.fn.threesixty.counter.counter++;
 			});	
 	
 			$("body").mouseup(function(e) {
