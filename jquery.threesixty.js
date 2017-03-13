@@ -169,22 +169,23 @@ jQuery.fn.threesixty = function(options){
 			var speed = options.autoscrollspeed;
 			var newIndex=0;
 			var isClicked=0;
-			if (isClicked>0){
+			//if (isClicked>0){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
-			}
+			//}
 			
 			
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
 				pic.data("enabled","1"); 
-				++isClicked;
+				
 			});	
 	
 			$("body").mouseup(function(e) {
 	 			e.preventDefault();
 	 			pic.data("enabled","0");
 				pic.data("currentIndex",pic.data("tempIndex"));
-				
+				++isClicked;
+				alert(isClicked);
 				
 			});
 			
