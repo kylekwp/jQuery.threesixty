@@ -8,7 +8,7 @@
  * *
  * Date: Tue Aug 9
  */
-
+var isClicked=0;
 jQuery.fn.threesixty = function(options){
 	options = options || {};
 	options.images = options.images || [];
@@ -19,9 +19,7 @@ jQuery.fn.threesixty = function(options){
 	options.sensibility = options.sensibility || options.cycle * 0.35;
 	options.autoscrollspeed = options.autoscrollspeed || 500;
 	
-	 if( typeof jQuery.fn.threesixty.counter == 'undefined' ) {
-        	jQuery.fn.threesixty.counter = 0;
-    	}
+	 
 
 
 	if (options.direction == "backward")
@@ -168,23 +166,25 @@ jQuery.fn.threesixty = function(options){
 		}
 		
 		if (options.method == "auto") {
-				var speed = options.autoscrollspeed;
+			var speed = options.autoscrollspeed;
 			var newIndex=0;
 			
-			if(jQuery.fn.threesixty.counter == 0){
+			if (isClicked==0){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			}
+			
+			
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
 				pic.data("enabled","1"); 
-				jQuery.fn.threesixty.counter++;
+				isClicked = isClicked +1;
 			});	
 	
 			$("body").mouseup(function(e) {
 	 			e.preventDefault();
 	 			pic.data("enabled","0");
 				pic.data("currentIndex",pic.data("tempIndex"));
-				jQuery.fn.threesixty.counter++;
+				
 				
 			});
 			
