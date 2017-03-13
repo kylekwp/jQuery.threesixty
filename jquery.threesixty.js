@@ -8,7 +8,7 @@
  * *
  * Date: Tue Aug 9
  */
-var isClicked=0;
+
 jQuery.fn.threesixty = function(options){
 	options = options || {};
 	options.images = options.images || [];
@@ -168,7 +168,7 @@ jQuery.fn.threesixty = function(options){
 		if (options.method == "auto") {
 			var speed = options.autoscrollspeed;
 			var newIndex=0;
-			
+			var isClicked=0;
 			if (isClicked==0){
 			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			}
@@ -177,7 +177,7 @@ jQuery.fn.threesixty = function(options){
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
 				pic.data("enabled","1"); 
-				isClicked = isClicked +1;
+				++isClicked;
 			});	
 	
 			$("body").mouseup(function(e) {
