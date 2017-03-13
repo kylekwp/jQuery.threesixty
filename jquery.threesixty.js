@@ -164,7 +164,9 @@ jQuery.fn.threesixty = function(options){
 		}
 		
 		if (options.method == "auto") {
-	
+				var speed = options.autoscrollspeed;
+			var newIndex=0;
+			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
 			
 			pic.mousedown(function(e) {
 				e.preventDefault(); 
@@ -172,12 +174,10 @@ jQuery.fn.threesixty = function(options){
 			});	
 	
 			$("body").mouseup(function(e) {
-	 			//e.preventDefault();
-	 			//pic.data("enabled","0");
-				//pic.data("currentIndex",pic.data("tempIndex"));
-			var speed = options.autoscrollspeed;
-			var newIndex=0;
-			window.setInterval(function() { pic.attr("src", imgArr[++newIndex % imgArr.length])} , speed);
+	 			e.preventDefault();
+	 			pic.data("enabled","0");
+				pic.data("currentIndex",pic.data("tempIndex"));
+
 			});
 			
 		}
